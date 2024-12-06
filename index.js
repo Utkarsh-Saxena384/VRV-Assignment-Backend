@@ -2,19 +2,17 @@ import express from "express";
 import pg from "pg";
 import cors from "cors";
 import bodyParser from "body-parser";
-import dotenv from "dotenv";
 
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(cors());
-dotenv.config();
 
 const db = new pg.Client({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  user: "postgres",
+  host: "localhost",
+  database: "rbac_data",
+  password: "Magic@i11",
+  port: 5432,
 });
 
 db.connect();
